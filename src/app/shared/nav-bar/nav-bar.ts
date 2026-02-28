@@ -15,6 +15,7 @@ export class NavBar {
   cerrarSesion(){
     this.servicioAuth.logout();
     alert("Sesión cerrada exitosamente");
+    window.location.href = '/login';
   }
   
 
