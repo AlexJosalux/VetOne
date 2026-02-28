@@ -1,0 +1,30 @@
+<header class="bg-gradient-to-br from-[#FDFBF7] via-[#F5F1EA] to-[#EBE3D5]">
+    
+    <div class="container px-6 py-16 mx-auto">
+        <div class="items-center lg:flex">
+            <div class="w-full lg:w-1/2">
+                <div class="lg:max-w-lg">
+                    <h1 class="text-3xl font-bold text-stone-800 lg:text-5xl leading-tight">
+                        {{titulo}}<br> 
+                        <span class="text-[#8C6A5D]">tu mascota</span>
+                    </h1>
+                    
+                    <p class="mt-6 text-stone-600 leading-relaxed italic border-l-4 border-[#D9C5B2] pl-4">
+                        "Viva la veterinaria, viva la salud animal, viva el amor por nuestras mascotas. En cada consulta, en cada tratamiento, en cada cuidado, celebramos la vida y el bienestar de nuestros compañeros peludos."
+                    </p>
+                    
+                    <button class="w-full px-8 py-3 mt-8 text-sm font-bold tracking-widest text-white uppercase transition-all duration-300 transform bg-[#6F4E37] rounded-full lg:w-auto hover:bg-[#5D4037] hover:shadow-lg focus:outline-none shadow-md">
+                        {{textBoton}}
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-center w-full mt-10 lg:mt-0 lg:w-1/2">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-[#D9C5B2] blur-3xl opacity-20 rounded-full"></div>
+                    <img class="relative w-full h-full lg:max-w-2xl drop-shadow-2xl" [src]="imagen" alt="Mascota">
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
