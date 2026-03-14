@@ -11,5 +11,6 @@ export const adminGuard: CanMatchFn = (route, segments) => {
     return true;
   }
 
+  console.warn('Acceso denegado: No eres Administrador');
   return false;
 };

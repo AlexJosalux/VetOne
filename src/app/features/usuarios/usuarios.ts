@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, } from '@angular/core';
 import { Formulario } from "../../shared/formulario/formulario";
 
 @Component({
@@ -8,5 +8,8 @@ import { Formulario } from "../../shared/formulario/formulario";
   styleUrl: './usuarios.css',
 })
 export class Usuarios {
+  @ViewChild('formulario') formulario!: Formulario;
+    
+ 
 
 }
