@@ -1,40 +1,105 @@
-<div class="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-2xl shadow-xl border border-stone-200">
-    <div class="px-8 py-6">
-        <div class="flex justify-center mx-auto">
-            <img class="w-auto h-12" src="/images/animal.png" alt="VetOne Logo">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="container mx-auto px-4">
+        <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+            <div class="p-8">
+                <!-- Toggle between Login and Signup -->
+                <div class="flex justify-center mb-8">
+                    <button id="loginTab" class="px-6 py-2 font-medium text-white bg-blue-500 rounded-l-lg focus:outline-none">
+                        Login
+                    </button>
+                    <button id="signupTab" class="px-6 py-2 font-medium text-blue-500 bg-white border border-blue-500 rounded-r-lg focus:outline-none">
+                        Sign Up
+                    </button>
+                </div>
+
+                <!-- Login Form -->
+                <form (ngSubmit)="iniciarSesion()" id="loginForm" class="space-y-6">
+                    <h2 class="text-2xl font-bold text-center text-gray-800">Welcome Back</h2>
+                    <div>
+                        <label for="loginEmail" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input [(ngModel)]="email" name=    "email" type="email" id="loginEmail" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="loginPassword" class="block text-sm font-medium text-gray-700">Password</label>
+                        <input [(ngModel)]="password" name="password" type="password" id="loginPassword" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input id="remember-me" name="remember-me" type="checkbox" class="h-4 w-4 text-blue-500 focus:ring-blue-500 border-gray-300 rounded">
+                            <label for="remember-me" class="ml-2 block text-sm text-gray-700">Remember me</label>
+                        </div>
+                        <div class="text-sm">
+                            <a href="#" class="font-medium text-blue-500 hover:text-blue-700">Forgot password?</a>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            Sign in
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Signup Form (Hidden by default) -->
+                <form id="signupForm" class="space-y-6 hidden">
+                    <h2 class="text-2xl font-bold text-center text-gray-800">Create Account</h2>
+                    <div>
+                        <label for="signupName" class="block text-sm font-medium text-gray-700">Full Name</label>
+                        <input type="text" id="signupName" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="signupEmail" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" id="signupEmail" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="signupPassword" class="block text-sm font-medium text-gray-700">Password</label>
+                        <input type="password" id="signupPassword" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="confirmPassword" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                        <input type="password" id="confirmPassword" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div class="flex items-center">
+                        <input id="terms" name="terms" type="checkbox" required class="h-4 w-4 text-blue-500 focus:ring-blue-500 border-gray-300 rounded">
+                        <label for="terms" class="ml-2 block text-sm text-gray-700">
+                            I agree to the <a href="#" class="text-blue-500 hover:text-blue-700">Terms and Conditions</a>
+                        </label>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            Create Account
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Social Login -->
+                <div class="mt-6">
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-white text-gray-500">Or continue with</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 grid grid-cols-2 gap-3">
+                        <button type="button" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            <img class="h-5 w-5" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROtT2Um38jtuqcDEmCfCx3tEqzORl-PCvxarTPD9jZlFvd9djCM7Gl36bGA4X-JBaMEmk&usqp=CAU" alt="Google">
+                        </button>
+                        <button type="button" class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                            <img class="h-5 w-5" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROtT2Um38jtuqcDEmCfCx3tEqzORl-PCvxarTPD9jZlFvd9djCM7Gl36bGA4X-JBaMEmk&usqp=CAU" alt="GitHub">
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <h3 class="mt-4 text-2xl font-bold text-center text-stone-800">¡Hola de nuevo!</h3>
-        <p class="mt-1 text-center text-stone-500 italic">Accede a tu cuenta de VetOne</p>
-
-        <form (ngSubmit)="iniciarSesion()">
-            <div class="w-full mt-6">
-                <label class="block mb-1 text-sm font-semibold text-stone-700">Correo Electrónico</label>
-                <input [(ngModel)]="email" name="email" 
-                    class="block w-full px-4 py-3 text-stone-700 bg-stone-50 border border-stone-300 rounded-xl focus:ring-2 focus:ring-[#D9C5B2] focus:border-[#6F4E37] focus:outline-none transition-all placeholder-stone-400" 
-                    type="email" placeholder="tu@correo.com" />
-            </div>
-
-            <div class="w-full mt-4">
-                <label class="block mb-1 text-sm font-semibold text-stone-700">Contraseña</label>
-                <input [(ngModel)]="password" name="password" 
-                    class="block w-full px-4 py-3 text-stone-700 bg-stone-50 border border-stone-300 rounded-xl focus:ring-2 focus:ring-[#D9C5B2] focus:border-[#6F4E37] focus:outline-none transition-all placeholder-stone-400" 
-                    type="password" placeholder="••••••••" />
-            </div>
-
-            <div class="flex items-center justify-between mt-6">
-                <a href="#" class="text-xs font-medium text-stone-500 hover:text-[#6F4E37] hover:underline transition-colors">¿Olvidaste tu clave?</a>
-
-                <button type="submit" 
-                    class="px-6 py-2.5 text-sm font-bold tracking-wide text-white transition-all duration-300 transform bg-[#6F4E37] rounded-xl hover:bg-[#5D4037] focus:outline-none shadow-md hover:shadow-lg active:scale-95">
-                    Entrar
-                </button>
-            </div>
-        </form>
     </div>
-
-    <div class="flex items-center justify-center py-4 text-center bg-stone-50 border-t border-stone-100">
-        <span class="text-sm text-stone-600">¿Eres nuevo?</span>
-        <a href="#" class="mx-2 text-sm font-bold text-[#6F4E37] hover:underline">Crea una cuenta</a>
-    </div>
-</div>
+</body>
+</html>>

@@ -9,7 +9,7 @@ import { Usuario } from '../models/usuario';
 export class UsuarioService {
   private http = inject(HttpClient);
 
-  private API_USUARIOS = 'https://console.firebase.google.com/u/0/project/vetone-42f39/database/vetone-42f39-default-rtdb/data/~2F?hl=es-419';
+  private API_USUARIOS = 'https://vetone-42f39-default-rtdb.firebaseio.com';
 
 
   //Metodo GET

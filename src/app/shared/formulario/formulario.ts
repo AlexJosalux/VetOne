@@ -3,6 +3,7 @@ import { UsuarioService } from '../../services/usuario-service';
 import { Usuario } from '../../models/usuario';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth-service';
 
 @Component({
   selector: 'app-formulario',
@@ -12,7 +13,8 @@ import { CommonModule } from '@angular/common';
 })
 export class Formulario {
 
-  private servicioUsuario = inject(UsuarioService);
+  public servicioUsuario = inject(UsuarioService);
+  public servicioAuth = inject(AuthService)
 
   //Lista reactiva
   listaUsuarios = signal<Usuario[]>([]);
@@ -21,7 +23,9 @@ export class Formulario {
   nuevoUsuario: Usuario = {
     name:'',
     email:'',
-    phone:''
+    phone:'',
+    password: '',
+    rol: 'ROLE_VETERINARIO'
   }
 
   editando: boolean = false;
@@ -72,7 +76,9 @@ export class Formulario {
     this.nuevoUsuario={
       name: '',
       email: '',
-      phone: ''
+      phone: '',
+      password: '',
+      rol: 'ROLE_VETERINARIO'
     }
   }
 }
